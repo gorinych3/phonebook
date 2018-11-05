@@ -1,15 +1,18 @@
 package ru.egor;
 
-
 import ru.egor.DAO.UserHibDAO;
+import ru.egor.model.PetAnimal;
 import ru.egor.model.User;
+import ru.egor.model.UsersPet;
 
 import java.util.List;
+import java.util.Set;
 
 public class ApplicationDemo {
     public static void main(String[] args) {
 
-        //UserHibDAO userHibDAO = new UserHibDAO();
+        UserHibDAO userHibDAO = new UserHibDAO();
+        //User user = new User();
 
         //add user
 //        User user = new User();
@@ -23,11 +26,13 @@ public class ApplicationDemo {
 
 
         //get user by id
-        //System.out.println((userHibDAO.getUserById(1)).toString());
+//        User user = userHibDAO.getUserById(8);
+//        System.out.println(user.toString());
+//        Set<UsersPet> usersPets =  user.getUsersPets();
 
         //get all users
 
-//        List<User> users = (List<User>) userHibDAO.list();
+        //List<User> users = (List<User>) userHibDAO.list();
 //        for(User us : users){
 //            System.out.println(us.toString());
 //        }

@@ -28,6 +28,8 @@ public class SelectAllServlet extends HttpServlet {
         //hibernate
         UserHibDAO userHibDAO = new UserHibDAO();
         List<User> users = (List<User>) userHibDAO.list();
+//        System.out.println(users);
+//        System.out.println(users.get(0).getClass());
 
         req.setAttribute("user", users);
 

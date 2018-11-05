@@ -2,6 +2,7 @@ package ru.egor.model;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -29,6 +30,14 @@ public class User {
 
     @Column(name = "profession")
     private String profession;
+
+    //создаем компонент уже после создания основной таблицы
+    @Embedded
+    private Car car;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private Set<UsersPet> usersPets;
+
 
     public User(){}
 
@@ -98,17 +107,34 @@ public class User {
         this.profession = profession;
     }
 
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public Set<UsersPet> getUsersPets() {
+        return usersPets;
+    }
+
+    public void setUsersPets(Set<UsersPet> usersPets) {
+        this.usersPets = usersPets;
+    }
+
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", f_name='" + f_name + '\'' +
-                ", l_name='" + l_name + '\'' +
-                ", address='" + address + '\'' +
-                ", home_phone='" + home_phone + '\'' +
-                ", m_phone='" + m_phone + '\'' +
-                ", profession='" + profession + '\'' +
-                '}';
+        return "User " + id +
+                ":   First '" + f_name + '\'' +
+                ", Last '" + l_name + '\'' +
+                ", Address '" + address + '\'' +
+                ", Phone '" + home_phone + '\'' +
+                ", Mobile '" + m_phone + '\'' +
+                ", Profession '" + profession + '\'' +
+                ", Car " + car +
+                ", Pets " + usersPets +
+                '.';
     }
 
     @Override

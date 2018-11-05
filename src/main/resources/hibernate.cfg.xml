@@ -10,5 +10,8 @@
         <property name="hbm2ddl.auto">validate</property>
 
         <mapping class="ru.egor.model.User"/>
+        <mapping class="ru.egor.model.PetAnimal"/>
+        <mapping class="ru.egor.model.UsersPet"/>
+
     </session-factory>
 </hibernate-configuration>

@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Add new user</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../w3.css">
 </head>
 
 <body class="w3-light-grey">
@@ -59,6 +59,26 @@
    <label>Профессия:
        <input type="text" name="profession" value="unknown" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
    </label>
+
+    <label>Марка автомобиля:
+        <input type="text" name="moderCar" value="unknown" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
+    </label>
+
+    <label>Тип автомобиля:
+        <input type="text" name="typeCar" value="unknown" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
+    </label>
+
+    <label>Цвет автомобиля:
+        <input type="text" name="colorCar" value="unknown" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
+    </label>
+
+    <label>Домашний питомец:
+        <input type="text" name="petType" value="unknown" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
+    </label>
+
+    <label>Имя питомца:
+        <input type="text" name="petName" value="unknown" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%"><br />
+    </label>
 
    <button type="submit" class="w3-btn w3-green w3-round-large w3-margin-bottom">Принять</button>
 

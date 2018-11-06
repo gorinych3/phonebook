@@ -35,7 +35,7 @@ public class User {
     @Embedded
     private Car car;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade=CascadeType.ALL)
     private Set<UsersPet> usersPets;
 
 

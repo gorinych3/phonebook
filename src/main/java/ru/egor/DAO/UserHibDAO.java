@@ -4,11 +4,14 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import ru.egor.connection.SessionFactoryMyImpl;
+import ru.egor.model.PetAnimal;
 import ru.egor.model.User;
 import org.hibernate.query.Query;
+import ru.egor.model.UsersPet;
 
 //import javax.persistence.Query;
 import java.util.List;
+import java.util.Set;
 
 public class UserHibDAO implements DAO {
 
@@ -19,15 +22,20 @@ public class UserHibDAO implements DAO {
 
     @Override
     public void add(User user) {
+
+    }
+
+    public void add(User user, UsersPet usersPet) {
         try {
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
             session.save(user);
+            session.save(usersPet);
 
             transaction.commit();
 
-            System.out.println("add");
+            System.out.println("add userpet");
             session.close();
         }finally {
             if(sessionFactory!=null){

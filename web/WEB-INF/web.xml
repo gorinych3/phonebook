@@ -123,5 +123,25 @@
         <url-pattern>/addPet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>deleteUser</servlet-name>
+        <servlet-class>ru.egor.servlets.DeleteUserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteUser</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deletePet</servlet-name>
+        <servlet-class>ru.egor.servlets.DeletePetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deletePet</servlet-name>
+        <url-pattern>/deletePet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 

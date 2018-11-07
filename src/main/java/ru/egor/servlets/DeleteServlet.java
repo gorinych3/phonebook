@@ -17,24 +17,4 @@ public class DeleteServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/delete.jsp");
         requestDispatcher.forward(req, resp);
     }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
-
-        //list
-//        UserImplDao DAO = UserImplDao.getINSTANCE();
-//        DAO.delete(id);
-
-        //JDBC
-//        UserDao userDao = new UserDao();
-//        userDao.delete(id);
-
-        //hibernate
-        UserHibDAO userHibDAO = new UserHibDAO();
-        userHibDAO.delete(id);
-
-        req.setAttribute("id", req.getParameter("id"));
-        doGet(req, resp);
-    }
 }

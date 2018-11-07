@@ -145,6 +145,9 @@ public class UserHibDAO implements DAO {
 
     @Override
     public void delete(int id) {
+    }
+
+    public void deleteUser(int id) {
         try {
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
@@ -156,6 +159,31 @@ public class UserHibDAO implements DAO {
 
             System.out.println("delete user");
             session.close();
+        }finally {
+            if(sessionFactory!=null){
+                sessionFactory.close();
+            }
+        }
+    }
+
+    public void deletePet(int user_id, int pet_id) {
+        try {
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            User user = session.get(User.class,user_id);
+            PetAnimal pa = session.get(PetAnimal.class,pet_id);
+
+            Query <UsersPet> query = session.createQuery("delete UsersPet where pet_id = :param1 and user_id = :param2");
+            query.setParameter("param1",pet_id);
+            query.setParameter("param2",user_id);
+            query.executeUpdate();
+
+            transaction.commit();
+
+            System.out.println("delete pet");
+            session.close();
+
         }finally {
             if(sessionFactory!=null){
                 sessionFactory.close();

@@ -8,8 +8,7 @@ import ru.egor.model.PetAnimal;
 import ru.egor.model.User;
 import org.hibernate.query.Query;
 import ru.egor.model.UsersPet;
-
-//import javax.persistence.Query;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -22,20 +21,15 @@ public class UserHibDAO implements DAO {
 
     @Override
     public void add(User user) {
-
-    }
-
-    public void add(User user, UsersPet usersPet) {
         try {
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
             session.save(user);
-            session.save(usersPet);
 
             transaction.commit();
 
-            System.out.println("add userpet");
+            System.out.println("add user");
             session.close();
         }finally {
             if(sessionFactory!=null){
@@ -43,6 +37,36 @@ public class UserHibDAO implements DAO {
             }
         }
     }
+
+
+
+    public void add(int id, PetAnimal petAnimal) {
+        try {
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            //поиск юзера по id и добавление в него животных
+            User user = session.get(User.class,id);
+            Set<UsersPet> usersPets = user.getUsersPets();
+            UsersPet up = new UsersPet();
+            up.setUser(user);
+            up.setPetAnimal(petAnimal);
+            usersPets.add(up);
+            user.setUsersPets(usersPets);
+            session.update(user);
+
+            transaction.commit();
+
+            System.out.println("add user");
+            session.close();
+        }finally {
+            if(sessionFactory!=null){
+                sessionFactory.close();
+            }
+        }
+    }
+
+
 
     @Override
     public List<?> list() {
@@ -70,11 +94,46 @@ public class UserHibDAO implements DAO {
             Session session = sessionFactory.openSession();
             Transaction transaction = session.beginTransaction();
 
+
             session.update(user);
 
             transaction.commit();
 
-            System.out.println("update user");
+            System.out.println("update user for id");
+            session.close();
+
+        }finally {
+            if(sessionFactory!=null){
+                sessionFactory.close();
+            }
+        }
+    }
+
+    public void update( int user_id, int pet_id, PetAnimal petAnimal) {
+        try {
+            Session session = sessionFactory.openSession();
+            Transaction transaction = session.beginTransaction();
+
+            //поиск юзера по id и update у него животного по pet_id
+
+            User user = session.get(User.class,user_id);
+            Set<UsersPet> usersPets = user.getUsersPets();
+
+            Iterator<UsersPet> userIterator = usersPets.iterator();
+            while(userIterator.hasNext()) {
+                UsersPet nextUserPet = userIterator.next();
+                if (nextUserPet.getPetAnimal().getPet_id()==pet_id) {
+                    nextUserPet.getPetAnimal().setPetName(petAnimal.getPetName());
+                    nextUserPet.getPetAnimal().setPetType(petAnimal.getPetType());
+                }
+            }
+
+            user.setUsersPets(usersPets);
+            session.update(user);
+
+            transaction.commit();
+
+            System.out.println("update pets");
             session.close();
 
         }finally {

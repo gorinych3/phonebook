@@ -19,7 +19,7 @@
 </div>
 
 <div class="w3-card-4">
-    <div class="w3-container w3-center w3-green">
+    <div class="w3-container w3-center w3-light-blue">
         <h2>Search by First Name</h2>
     </div>
 </div>
@@ -50,7 +50,7 @@
                     <input type="text" name="m_phone" class="w3-input w3-animate-input w3-border w3-round-large" style="width: 30%">Поле обязательное для заполнения<br />
                 </label>
 
-                <button type="submit" class="w3-btn w3-green w3-round-large w3-margin-bottom">Принять</button>
+                <button type="submit" class="w3-btn w3-light-blue w3-round-large w3-margin-bottom">Принять</button>
 
             </form>
         </div>

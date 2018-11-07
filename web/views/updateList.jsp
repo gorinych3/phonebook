@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Add...</title>
+    <title>Update...</title>
     <link rel="stylesheet" href="../w3.css">
 </head>
 
@@ -20,22 +20,23 @@
 
 <div class="w3-container w3-center w3-margin-bottom w3-padding">
     <div class="w3-card-4">
-        <div class="w3-container w3-green">
-            <h2>Add</h2>
+        <div class="w3-container w3-orange">
+            <h2>Update</h2>
         </div>
     </div>
 </div>
 
 <div class="w3-container w3-center">
     <div class="w3-bar w3-padding-large w3-padding-24">
-        <button class="w3-btn w3-hover-green w3-round-large" onclick="location.href='/addUser'">Add user</button>
-        <button class="w3-btn w3-hover-green w3-round-large" onclick="location.href='/addPet'">Add pet</button>
+        <button class="w3-btn w3-hover-orange w3-round-large" onclick="location.href='/updateUser'">Update user</button>
+        <button class="w3-btn w3-hover-orange w3-round-large" onclick="location.href='/updatePet'">Update pet</button>
 
     </div>
 </div>
 
 <div class="w3-container w3-grey w3-opacity w3-right-align w3-padding">
     <button class="w3-btn w3-round-large" onclick="location.href='/'">Back to main</button>
+    <button class="w3-btn w3-round-large" onclick="location.href='/updateList'">Back to update</button>
 </div>
 </body>
 </html>

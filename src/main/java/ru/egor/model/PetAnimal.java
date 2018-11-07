@@ -43,6 +43,6 @@ public class PetAnimal {
 
     @Override
     public String toString() {
-        return petType + " "  + petName;
+        return pet_id + " : "+ petType + " "  + petName;
     }
 }

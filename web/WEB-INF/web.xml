@@ -25,13 +25,13 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>update</servlet-name>
-        <servlet-class>ru.egor.servlets.UpdateServlet</servlet-class>
+        <servlet-name>updateList</servlet-name>
+        <servlet-class>ru.egor.servlets.UpdateListServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>update</servlet-name>
-        <url-pattern>/update</url-pattern>
+        <servlet-name>updateList</servlet-name>
+        <url-pattern>/updateList</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -82,6 +82,45 @@
     <servlet-mapping>
         <servlet-name>searchByMobilePhone</servlet-name>
         <url-pattern>/searchByMobilePhone</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateUser</servlet-name>
+        <servlet-class>ru.egor.servlets.UpdateUserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateUser</servlet-name>
+        <url-pattern>/updateUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updatePet</servlet-name>
+        <servlet-class>ru.egor.servlets.UpdatePetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updatePet</servlet-name>
+        <url-pattern>/updatePet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>addUser</servlet-name>
+        <servlet-class>ru.egor.servlets.AddUserServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addUser</servlet-name>
+        <url-pattern>/addUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>addPet</servlet-name>
+        <servlet-class>ru.egor.servlets.AddPetServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addPet</servlet-name>
+        <url-pattern>/addPet</url-pattern>
     </servlet-mapping>
 
 </web-app>
